@@ -2,7 +2,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-size: 0.75em;
 }
 
 :root {
@@ -11,7 +10,7 @@
   --very-dark-desaturated-blue: hsl(238, 29%, 16%);
   --soft-red: hsl(14, 88%, 65%);
 
-  --very-grayish-blue: hsl(237, 12%, 33%);
+  --very-dark-grayish-blue: hsl(237, 12%, 33%);
   --dark-grayish-blue: hsl(240, 6%, 50%);
 
   /* Gradient */
@@ -22,4 +21,22 @@
   /* Dividers */
 
   --light-grayish-blue: hsl(240, 5%, 91%);
+}
+
+html {
+  font-family: "Kumbh Sans";
+}
+
+body {
+  font-size: 0.75em;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  background: linear-gradient(var(--soft-violet), var(--soft-blue));
+}
+
+@media screen and (min-width: 1920px) {
+  body {
+    font-size: 1.2em;
+  }
 }

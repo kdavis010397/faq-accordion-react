@@ -1,0 +1,15 @@
+.question {
+  display: flex;
+  color: var(--very-dark-grayish-blue);
+
+  justify-content: space-between;
+}
+
+.question:hover {
+  color: var(--soft-red);
+  cursor: pointer;
+}
+
+.bold {
+  font-weight: 700;
+}

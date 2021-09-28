@@ -1,0 +1,5 @@
+.answer {
+  margin-top: 1rem;
+  transition: margin-top 2s;
+  color: var(--dark-grayish-blue);
+}

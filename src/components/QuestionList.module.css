@@ -1,0 +1,9 @@
+.Q-A-list {
+  list-style: none;
+}
+
+.Q-A-list > li {
+  padding: 1rem 0;
+  position: relative;
+  border-bottom: 1px solid var(--light-grayish-blue);
+}
