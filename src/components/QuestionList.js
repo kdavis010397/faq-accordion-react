@@ -6,38 +6,39 @@ import Question from "./Question";
 import Answer from "./Answer";
 
 const QAList = () => {
-  const [active, setActive] = useState({});
+  const [clickedQuestion, setClickedQuestion] = useState({
+    q1: false,
+    q2: false,
+    q3: false,
+    q4: false,
+    q5: false,
+    prevClick: "",
+  });
 
   const clickHandler = (event) => {
-    const questionList = document.querySelectorAll("li");
-    questionList.forEach((question) => {
-      const text = question.firstElementChild;
-      const arrow = text.firstElementChild;
-      text.style.fontWeight = 500;
+    const allQuestions = document.querySelectorAll("li");
+    const clicked = event.target.closest("li");
+    const question = clicked.firstElementChild;
+    const arrow = question.firstElementChild;
 
-      if (arrow.style.transform === "rotateX(180deg)") {
-        arrow.style.transform = "rotateX(0)";
-      }
+    allQuestions.forEach((question) => {
+      question.firstElementChild.style.fontWeight = 500;
+      question.firstElementChild.firstElementChild.style.transform =
+        "rotateZ(0deg)";
     });
 
-    const questions = {
-      q1: false,
-      q2: false,
-      q3: false,
-      q4: false,
-      q5: false,
-    };
+    if (!clickedQuestion[clicked.id]) {
+      question.style.fontWeight = 700;
+      arrow.style.transform = "rotateZ(180deg)";
+    }
 
-    const clicked = event.target.closest("li");
-    const questionText = clicked.firstElementChild;
-    const arrow = questionText.firstElementChild;
+    if (clickedQuestion.prevClick !== clicked.id) {
+      clickedQuestion[clickedQuestion.prevClick] = false;
+    }
 
-    questionText.style.fontWeight = 900;
-    arrow.style.transform = "rotateX(180deg)";
-
-    questions[clicked.id] = true;
-
-    setActive(questions);
+    clickedQuestion[clicked.id] = !clickedQuestion[clicked.id];
+    clickedQuestion.prevClick = clicked.id;
+    setClickedQuestion({ ...clickedQuestion });
   };
 
   return (
@@ -45,7 +46,7 @@ const QAList = () => {
       <li onClick={clickHandler} id={"q1"}>
         <Question>How many team members can I invite?</Question>
 
-        {active.q1 && (
+        {clickedQuestion.q1 && (
           <Answer>
             You can invite up to 2 additional users on the Free plan. There is
             no limit on team members for the Premium plan.
@@ -55,7 +56,7 @@ const QAList = () => {
       <li onClick={clickHandler} id={"q2"}>
         <Question>What is the maximum file upload size?</Question>
 
-        {active.q2 && (
+        {clickedQuestion.q2 && (
           <Answer>
             No more than 2GB. All files in your account must fit your allotted
             storage space.
@@ -65,7 +66,7 @@ const QAList = () => {
       <li onClick={clickHandler} id={"q3"}>
         <Question>How do I reset my password?</Question>
 
-        {active.q3 && (
+        {clickedQuestion.q3 && (
           <Answer>
             Click “Forgot password” from the login page or “Change password”
             from your profile page. A reset link will be emailed to you.
@@ -75,7 +76,7 @@ const QAList = () => {
       <li onClick={clickHandler} id={"q4"}>
         <Question>Can I cancel my subsciption?</Question>
 
-        {active.q4 && (
+        {clickedQuestion.q4 && (
           <Answer>
             Yes! Send us a message and we’ll process your request no questions
             asked.
@@ -85,7 +86,7 @@ const QAList = () => {
       <li onClick={clickHandler} id={"q5"}>
         <Question>Do you provide addtional support?</Question>
 
-        {active.q5 && (
+        {clickedQuestion.q5 && (
           <Answer>
             Chat and email support is available 24/7. Phone lines are open
             during normal business hours.

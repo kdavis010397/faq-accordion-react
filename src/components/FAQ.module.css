@@ -1,83 +1,95 @@
 .container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  background: url("../images/bg-pattern-desktop.svg") no-repeat;
-  background-origin: border-box;
-  background-position: -35rem -20rem;
-  background-color: white;
   width: 70%;
-  margin: auto;
+  height: 70vh;
+  background-color: white;
+  border-radius: 25px;
+  margin: 0 auto;
+
+  display: flex;
+  position: relative;
+
+  background-image: url("../images/bg-pattern-desktop.svg");
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-position: -35rem -15rem;
+}
+
+.images-container {
+  flex-basis: 50%;
+
+  align-self: center;
   overflow: hidden;
-  border-radius: 20px;
-  height: 60vh;
+}
+
+.hero {
+  display: block;
+  transform: translateX(-5rem);
 }
 
 .box {
   position: absolute;
-  top: 43%;
-  left: 8.5%;
-  z-index: 1;
-}
-
-.hero {
-  transform: translate(-5rem, 3rem);
+  z-index: 10;
+  transform: translate(-5.5rem, 8rem);
 }
 
 .faq-section {
-  grid-column: 2/3;
-  place-self: center left;
-  width: 75%;
+  flex-basis: 50%;
+  width: 100%;
+  align-self: center;
+  margin-right: 10rem;
 }
 
 .faq-section > h1 {
-  font-size: 2rem;
-
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 @media screen and (min-width: 1920px) {
-  .container {
-    background-position: -30rem -13rem;
-    height: 70vh;
+  html {
+    font-size: 1.2rem;
   }
 
-  .faq-section > h1 {
-    font-size: 3rem;
+  .container {
+    background-position: -25rem;
+  }
 
-    margin-bottom: 1.5rem;
+  .hero {
+    width: 100%;
   }
 
   .box {
-    position: absolute;
-    top: 43%;
-    left: 9%;
-    z-index: 1;
-    width: 12%;
-  }
-
-  .hero {
-    width: 90%;
-    transform: translate(-7rem, 5rem);
+    transform: translate(-5rem, 9.5rem);
   }
 }
 
-@media screen and (max-width: 400px) {
-  .container {
-    width: 90%;
-    background-image: url("../images/bg-pattern-mobile.svg");
-    background-position: 2.8rem 0.5rem;
-    overflow: visible;
-    height: 100%;
-    padding-bottom: 3rem;
+@media screen and (max-width: 1350px) {
+  .faq-section {
+    margin-right: 2.5rem;
+  }
+}
 
-    display: flex;
+@media screen and (max-width: 1240px) {
+  .container {
+    background-image: url("../images/bg-pattern-mobile.svg");
+    background-position: 50% 2%;
+    background-size: 18rem;
     flex-flow: column nowrap;
+    height: max-content;
+  }
+
+  .images-container {
+    position: absolute;
+    justify-self: center;
+    overflow: visible;
+  }
+
+  .faq-section > h1 {
+    margin-top: 10rem;
+    text-align: center;
   }
 
   .hero {
-    position: absolute;
     content: url("../images/illustration-woman-online-mobile.svg");
-    transform: translate(1rem, -6.5rem);
+    transform: scale(1.2) translate(-1rem, -5.5rem);
   }
 
   .box {
@@ -85,12 +97,30 @@
   }
 
   .faq-section {
-    width: 85%;
+    margin: 0;
+    padding: 0 5rem 3rem;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .faq-section {
+    padding: 0 1.5rem 3rem;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    background-size: 20rem;
+    background-position: 50% -1%;
   }
 
-  .faq-section > h1 {
-    padding-top: 8rem;
-    text-align: center;
-    margin-bottom: 1.5rem;
+  .hero {
+    transform: scale(1) translate(-1rem, -9rem);
   }
 }

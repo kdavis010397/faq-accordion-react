@@ -6,9 +6,9 @@ const Question = (props) => {
   return (
     <p className={classes.question}>
       {props.children}
-      <span>
+      <button aria-label="Arrow Button">
         <img src={arrowDown} alt="" />
-      </span>
+      </button>
     </p>
   );
 };

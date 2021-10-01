@@ -9,13 +9,14 @@ const FAQ = () => {
   return (
     <div className={classes.container}>
       <div className={classes["images-container"]}>
-        <img className={classes.box} src={boxImage} alt="" />
-        <img className={classes.hero} src={heroImage} alt="" />
+        <img className={classes.box} src={boxImage} alt="Box" />
+        <img className={classes.hero} src={heroImage} alt="Woman-Online" />
       </div>
-      <section className={classes["faq-section"]}>
+
+      <main className={classes["faq-section"]}>
         <h1>FAQ</h1>
         <QuestionList />
-      </section>
+      </main>
     </div>
   );
 };

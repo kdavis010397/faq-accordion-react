@@ -25,18 +25,18 @@
 
 html {
   font-family: "Kumbh Sans";
+  font-size: 1em;
 }
 
 body {
-  font-size: 0.75em;
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
   align-items: center;
   background: linear-gradient(var(--soft-violet), var(--soft-blue));
 }
 
-@media screen and (min-width: 1920px) {
-  body {
-    font-size: 1.2em;
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 0.75em;
   }
 }

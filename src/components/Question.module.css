@@ -10,6 +10,12 @@
   cursor: pointer;
 }
 
+.question > button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 .bold {
   font-weight: 700;
 }
